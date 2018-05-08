@@ -1,22 +1,16 @@
  #include <LiquidCrystal.h>
 /*
  WELCOME TO THE AUTO-INEBRIATOR SOURCE CODE!
- Where documentation is sparse, and the whole things has been lost twice!
+ Where documentation is sparse, and the whole thing has been lost twice!
  ------------------------
  By Sina Khalili and Sterling Smith
- --------
-
-
-void setup() {
-}
-
-void loop() { }----------------
+ ------------------------
  */
 int buttonUp = 5;
 int buttonDown = 4;
 int buttonSelect = 3; 
-int pumpA = 13;
-int pumpB = 12;
+int pumpA = A5;
+int pumpB = A4;
 int currMenu = 0;
 int another = 0;
 char* options[]= {"Dark & Stormy", "Margarita", "Jaeger Bomb"};
@@ -36,13 +30,14 @@ void setup() {
   pinMode(buttonDown, INPUT);
   pinMode(pumpA, OUTPUT);
   pinMode(pumpB, OUTPUT);
-  
+  digitalWrite(pumpA, HIGH);
+  digitalWrite(pumpB, HIGH);
 }
 
 void pumpFunc(int pump, int dval){
-  digitalWrite(pump, HIGH);
-  delay(dval);
   digitalWrite(pump, LOW);
+  delay(dval);
+  digitalWrite(pump, HIGH);
 }
 
 int makeDrink(int a, int b){
@@ -95,10 +90,10 @@ void loop() {
   
  switch (currMenu) {
     case 0:
-      makeDrink(1000,1000);
+      makeDrink(5000,1000);
     break;
     case 1:
-      makeDrink(100,100);
+      makeDrink(1000,1000);
     break;
     case 2:
       makeDrink(2000,2000);
