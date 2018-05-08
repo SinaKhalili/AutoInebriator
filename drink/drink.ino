@@ -6,9 +6,9 @@
  By Sina Khalili and Sterling Smith
  ------------------------
  */
-int buttonUp = 5;
+int buttonUp = 3;
 int buttonDown = 4;
-int buttonSelect = 3; 
+int buttonSelect = 5; 
 int pumpA = A5;
 int pumpB = A4;
 int currMenu = 0;
